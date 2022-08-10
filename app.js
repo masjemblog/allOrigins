@@ -35,7 +35,9 @@ module.exports = (function app() {
   app.disable('x-powered-by')
   app.enable("trust proxy")
   app.use(enableCORS)
-
+  app.get('/ping', function (res, req) {
+    res.send('OK')
+  })
   app.all('/:format(get|raw|json|info)', processRequest)
 
   return app
