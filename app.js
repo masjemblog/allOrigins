@@ -35,17 +35,6 @@ module.exports = (function app() {
   app.disable('x-powered-by')
   app.enable("trust proxy")
   app.use(enableCORS)
-  
-  app.use(async function (req, res) {
-    try {
-      if ('/ping' == req.url) {
-        res.status(200)
-        res.send('ok')
-      }
-    } catch (e) {
-      //
-    }
-  }
           
   app.all('/:format(get|raw|json|info)', processRequest)
 
